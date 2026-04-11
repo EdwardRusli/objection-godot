@@ -6,7 +6,7 @@
 This project reads an XML-like file (currently with a hard-coded name, but will be changed in the future) and plays it out as an *Ace Attorney* scene without any user input, then exits automatically.
 For script examples, see the `test_*.xml` files.
 
-This project currently uses Godot 4.4-beta.
+This project currently uses Godot 4.6.
 
 ## Usage
 
@@ -14,11 +14,25 @@ By default, the program will read from `script.xml` in the root of the project f
 
 To make it read another script file, pass it as a command-line argument with the `--render-script` flag, like so:
 
-```
+```text
 -- --render-script="path/to/my/script.xml"
 ```
 
 Note that the double hyphens (`--`) must be placed before the argument.
+
+### Payne script format
+
+In addition to the default script format, Objection Godot also includes the Payne format.
+This format is designed to be very simple, making it more suitable for quickly converting conversations into playable videos.
+Note that many advanced effects and actions available with the default script format are *not* available with Payne.
+
+See an [example Payne script here](payne_engine/payne_test.xml), and [the command documentation for the Payne format here](documentation/payne_engine.md).
+
+To run a script with the Payne format, add the `--payne` flag to the command line arguments:
+
+```text
+-- --payne --render-script="path/to/payne_script.xml"
+```
 
 ## Roadmap
 
