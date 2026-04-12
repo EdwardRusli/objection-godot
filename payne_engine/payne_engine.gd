@@ -340,7 +340,7 @@ func generate_xml() -> String:
 			output_xml.append("<sprite.set pos=\"%s\" anim=\"%s-idle\" />\n" % [char_pos, char_anim])
 			output_xml.append("<blip.set type=\"none\" />\n")
 
-			if dialog_blocks.size() > block_i + 1 and dialog_blocks[block_i + 1]["type"] != "newevidence":
+			if dialog_blocks.size() == block_i + 1 or dialog_blocks[block_i + 1]["type"] != "newevidence":
 				output_xml.append("<arrow.set_visible/>\n")
 				output_xml.append("<wait duration=\"2.0\"/>\n")
 
