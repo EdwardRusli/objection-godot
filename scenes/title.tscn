@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bv8eg26t21tgi"]
+[gd_scene format=3 uid="uid://bv8eg26t21tgi"]
 
-[ext_resource type="Texture2D" uid="uid://db3yv5gqwcsco" path="res://scenes/title/title.jpg" id="1_4ignj"]
-[ext_resource type="Script" path="res://scenes/title.gd" id="1_title_script"]
+[ext_resource type="Script" uid="uid://b8s7lilytvy2g" path="res://scenes/title.gd" id="1_title_script"]
+[ext_resource type="Texture2D" uid="uid://cnyxi6lkj22vu" path="res://scenes/title/title.PNG" id="2_pyl7j"]
+[ext_resource type="FontFile" uid="uid://c44r21t8cipsp" path="res://fonts/2019 Trilogy Textbox/FOT-ModeMinBLargeStd-R.otf" id="3_p6dhs"]
+[ext_resource type="Texture2D" uid="uid://cpbc84fekhcr5" path="res://scenes/title/splash.png" id="4_pyl7j"]
+
+[sub_resource type="FontVariation" id="FontVariation_bold"]
+base_font = ExtResource("3_p6dhs")
+variation_embolden = 0.8
 
 [node name="Control" type="Control" unique_id=1621576853]
 layout_mode = 3
@@ -12,13 +18,42 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_title_script")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1325183048]
+[node name="Title" type="TextureRect" parent="." unique_id=1325183048]
 layout_mode = 0
-offset_left = -320.0
-offset_right = 960.0
-offset_bottom = 720.0
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("1_4ignj")
+offset_right = 1440.0
+offset_bottom = 1080.0
+texture = ExtResource("2_pyl7j")
+
+[node name="PressAnyButton" type="Label" parent="." unique_id=987654324]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -282.385
+offset_right = 300.0
+offset_bottom = -222.38501
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.972549, 0.9254902, 0.101960786, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = SubResource("FontVariation_bold")
+theme_override_font_sizes/font_size = 40
+text = "Press Any Button"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SplashRect" type="TextureRect" parent="." unique_id=1690301147]
+visible = false
+layout_mode = 0
+offset_right = 1440.0
+offset_bottom = 1080.0
+texture = ExtResource("4_pyl7j")
 
 [node name="FadeOverlay" type="ColorRect" parent="." unique_id=987654322]
 visible = false
