@@ -130,7 +130,8 @@ var character_configs: Dictionary = {
 	"kay": {
 		"pos": "left",
 		"blip": "female",
-		"anims": ["normal"]
+		"anims": ["annoyed", "deskslam", "normal", "pointing"],
+		"single_pose_anims": ["annoyed", "deskslam", "pointing"]
 	},
 	"killer": {
 		"anims": ["normal", "steaming", "sweating"]
@@ -329,10 +330,16 @@ func generate_xml() -> String:
 			elif prev_evidence != "":
 				output_xml.append("<evidence.hide side=\"%s\" />" % [evidence_side])
 
+			var idle_anim = char_anim + "-idle"
+			var talk_anim = char_anim + "-talk"
+			if char_config.get("single_pose_anims", []).has(char_anim):
+				idle_anim = char_anim
+				talk_anim = char_anim
+
 			# Set text box for character
 			output_xml.append("<nametag.set_text text=\"%s\" character=\"%s\" />" % [display_name, char_id])
 			# Set character idle animation
-			output_xml.append("<sprite.set pos=\"%s\" res=\"%s\" anim=\"%s-idle\"/>\n" % [char_pos, char_res, char_anim])
+			output_xml.append("<sprite.set pos=\"%s\" res=\"%s\" anim=\"%s\"/>\n" % [char_pos, char_res, idle_anim])
 
 			# Cut camera to this character's position
 			output_xml.append("<camera.cut to=\"%s\" />\n" % [char_pos])
@@ -341,7 +348,7 @@ func generate_xml() -> String:
 			output_xml.append("<wait duration=\"0.5\"/>")
 
 			# Start character talking animation
-			output_xml.append("<sprite.set pos=\"%s\" anim=\"%s-talk\" />\n" % [char_pos, char_anim])
+			output_xml.append("<sprite.set pos=\"%s\" anim=\"%s\" />\n" % [char_pos, talk_anim])
 
 			# If this box has evidence, then display it.
 			if evidence != "" and evidence != prev_evidence:
@@ -355,7 +362,7 @@ func generate_xml() -> String:
 			output_xml.append("")
 
 			# End character talking animation once text is done
-			output_xml.append("<sprite.set pos=\"%s\" anim=\"%s-idle\" />\n" % [char_pos, char_anim])
+			output_xml.append("<sprite.set pos=\"%s\" anim=\"%s\" />\n" % [char_pos, idle_anim])
 			output_xml.append("<blip.set type=\"none\" />\n")
 
 			if dialog_blocks.size() == block_i + 1 or dialog_blocks[block_i + 1]["type"] != "newevidence":

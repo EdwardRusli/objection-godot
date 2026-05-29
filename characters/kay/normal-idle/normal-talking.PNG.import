@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0gqst74ocqiw"
-path="res://.godot/imported/normal-idle-1.png-5e13919870ce4f0700912b8b1669378f.ctex"
+uid="uid://vuboyms6ogxr"
+path="res://.godot/imported/normal-talking.PNG-c7727019106307314168656efaed54e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/kay/normal-idle/normal-idle-1.png"
-dest_files=["res://.godot/imported/normal-idle-1.png-5e13919870ce4f0700912b8b1669378f.ctex"]
+source_file="res://characters/kay/normal-idle/normal-talking.PNG"
+dest_files=["res://.godot/imported/normal-talking.PNG-c7727019106307314168656efaed54e8.ctex"]
 
 [params]
 

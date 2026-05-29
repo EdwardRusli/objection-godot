@@ -15,3 +15,5 @@ Studio One at approximately
 [color=#f17038]1:00 PM.[/color]"
 shortcut_keys_enabled = false
 visible_characters_behavior = 1
+clip_contents = false
+theme_override_constants/line_separation = 4

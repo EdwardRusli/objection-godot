@@ -6,29 +6,30 @@
     </cast>
     <conversation>
         <startmusic res="res://audio/music/pwr/cross-moderato.wav"/>
-        <dialog id="p">oh actually bringing back ke work force thingy</dialog>
-        <dialog id="k">oh actually bringing back ke work force thingy</dialog>
-        <dialog id="k">bisa argue ga kalau child nya jadi worker berarti long term family punya source of income</dialog>
+        <dialog id="k" anim="normal">oh actually bringing back ke work force thingy</dialog>
+        <dialog id="k" anim="normal">bisa argue ga kalau child nya jadi worker berarti long term family punya source of income?</dialog>
         
         <objection id="e" />
         <dialog id="e">tp klo dinikahin sm opa kaya this is invalid no?</dialog>
         
-        <dialog id="p">…</dialog>
-        <dialog id="k">…</dialog>
-        <dialog id="e">…</dialog>
+        <stopmusic />
+        <dialog id="p">...</dialog>
+        <dialog id="k" anim="annoyed">...</dialog>
+        <dialog id="e">...</dialog>
         
         <objection id="p" />
+        <startmusic />
         <dialog id="p">anjing 😭</dialog>
         
-        <dialog id="k">LMAO</dialog>
-        <dialog id="k">LMAOOOOO</dialog>
-        <dialog id="k">I CANT STOP LAUGHING</dialog>
+        <dialog id="k" anim="normal">LMAO</dialog>
+        <dialog id="k" anim="normal">LMAOOOOO</dialog>
+        <dialog id="k" anim="deskslam">I CANT STOP LAUGHING</dialog>
         
         <dialog id="e">GBLKKKKKKKKKKKKK 😭</dialog>
         <dialog id="e">😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭</dialog>
         
-        <dialog id="k">ed kalau lo fail this ethics class</dialog>
-        <dialog id="k">jadi comedian aja dah</dialog>
+        <dialog id="k" anim="normal">ed kalau lo fail this ethics class</dialog>
+        <dialog id="k" anim="normal">jadi comedian aja dah</dialog>
         
         <dialog id="p">GW SAKIT PERUT BANGSAT</dialog>
         <dialog id="p">SAKIT BANGET</dialog>
@@ -38,15 +39,15 @@
         <dialog id="e">EVEN THE NAZI EXAMPLE WAS BETTER DEFENSE THAN THIS 😭</dialog>
         
         <holdit id="k" />
-        <dialog id="k">STOP</dialog>
+        <dialog id="k" anim="normal">STOP</dialog>
         
         <dialog id="p">PERUT GUE</dialog>
         <dialog id="e">ini rado looking at me like a clinically insane man for laughing silently</dialog>
-        <dialog id="p">RADO WOULD THINK YOU *ARE* A CLINICALLY INSANE MAN IF HE READ THIS BULLSHIT</dialog>
+        <dialog id="p">RADO WOULD THINK YOU <color value="aa-text-red">ARE</color> A CLINICALLY INSANE MAN IF HE READ THIS BULLSHIT</dialog>
         
-        <dialog id="k">ok bisa</dialog>
-        <dialog id="k">gini logikanya</dialog>
-        <dialog id="k">do you think opa kaya bakal respect istri muda?</dialog>
+        <dialog id="k" anim="normal">ok bisa</dialog>
+        <dialog id="k" anim="normal">gini logikanya</dialog>
+        <dialog id="k" anim="pointing">do you think opa kaya bakal respect istri muda?</dialog>
         <stopmusic/>
     </conversation>
 </payne>
