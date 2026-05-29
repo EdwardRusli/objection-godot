@@ -46,8 +46,74 @@ func _enter_tree():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# Configure emoji font fallback for dialogue label using the bundled Twitter Color Emoji font
+	var emoji_font = load("res://fonts/TwitterColorEmoji-SVGinOT.ttf")
+	var main_font := dialogue_label.get_theme_font("normal_font")
+	if main_font:
+		main_font.fallbacks = [emoji_font]
+
 	await get_tree().process_frame
 	_display_text()
+
+const EMBEDDED_SCRIPT = """<payne>
+    <cast>
+        <character id="k" display_name="Kay" character="kay" />
+        <character id="e" display_name="Ed" character="ed" />
+        <character id="p" display_name="Phoebe" character="pob" />
+    </cast>
+    <conversation>
+        <startmusic res="res://audio/music/pwr/cross-moderato.wav"/>
+        <fade.from_black />
+        <dialog id="k" anim="normal">oh actually bringing back ke work force thingy</dialog>
+        <dialog id="k" anim="normal">bisa argue ga kalau child nya jadi worker berarti long term family punya source of income?</dialog>
+        
+        <objection id="e" />
+        <dialog id="e" anim="normal">tp klo dinikahin sm opa kaya this is invalid no?</dialog>
+        
+        <stopmusic />
+
+        <dialog id="p" anim="shock">...</dialog>
+        <dialog id="k" anim="annoyed">...</dialog>
+        <dialog id="e" anim="normal">...</dialog>
+        
+        <objection id="p" />
+        <startmusic res="res://audio/music/pwr/press.wav"/>
+        <dialog id="p" anim="crying">anjing 😭</dialog>
+        
+        <dialog id="k" anim="normal">LMAO</dialog>
+        <dialog id="k" anim="normal">LMAOOOOO</dialog>
+        <dialog id="k" anim="deskslam">I CANT STOP LAUGHING</dialog>
+        
+        <dialog id="e" anim="crying">GBLKKKKKKKKKKKKK 😭</dialog>
+        <dialog id="e" anim="crying">😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭</dialog>
+        
+        <dialog id="k" anim="normal">ed kalau lo fail this ethics class</dialog>
+        <dialog id="k" anim="normal">jadi comedian aja dah</dialog>
+        <sound res="res://audio/sound/sfx-realization.wav"/>
+        <dialog id="p" anim="crying">GW SAKIT PERUT BANGSAT</dialog>
+        <dialog id="p" anim="crying">SAKIT BANGET</dialog>
+        
+        <takethat id="e" />
+        <dialog id="e" anim="normal">FAKLAH</dialog>
+        <sound res="res://audio/sound/sfx-whoops.wav"/>
+        <dialog id="e" anim="crying">EVEN THE NAZI EXAMPLE WAS BETTER DEFENSE THAN THIS 😭</dialog>
+        
+        <holdit id="k" />
+        <dialog id="k" anim="normal">STOP</dialog>
+        
+        <dialog id="p" anim="crying">PERUT GUE</dialog>
+        <dialog id="e" anim="normal">ini rado looking at me like a clinically insane man for laughing silently</dialog>
+        <sound res="res://audio/sound/sfx-supershock.wav"/>
+        <flash />
+        <dialog id="p" anim="crying">RADO WOULD THINK YOU <color value="aa-text-red">ARE</color> A CLINICALLY INSANE MAN IF HE READ THIS BULLSHIT</dialog>
+        
+        <dialog id="k" anim="normal">ok bisa</dialog>
+        <dialog id="k" anim="normal">gini logikanya</dialog>
+        <dialog id="k" anim="pointing">do you think opa kaya bakal respect istri muda?</dialog>
+        <fade.to_black />
+        <stopmusic/>
+    </conversation>
+</payne>"""
 
 func _display_text():
 	var path: String = "res://script.xml"
@@ -62,21 +128,28 @@ func _display_text():
 			if (path[0] == "\"" and path[-1] == "\"") or (path[0] == "'" and path[-1] == "'"):
 				path = path.substr(1, path.length() - 2)
 
-	if not FileAccess.file_exists(path):
-		Utils.print_error("File at \"%s\" cannot be found." % path)
-		get_tree().quit(0)
-		return
-
-	print_rich("Running script at \"%s\"..." % path)
-
-	var f := FileAccess.open(path, FileAccess.READ)
+	var xml_content: String = ""
+	var load_from_file: bool = false
+	
+	if OS.has_feature("editor") and FileAccess.file_exists(path):
+		load_from_file = true
+	elif path != "res://script.xml" and FileAccess.file_exists(path):
+		load_from_file = true
+		
+	if load_from_file:
+		print_rich("Running script at \"%s\"..." % path)
+		var f := FileAccess.open(path, FileAccess.READ)
+		xml_content = f.get_as_text()
+	else:
+		print_rich("Using embedded script...")
+		xml_content = EMBEDDED_SCRIPT
 
 	var xml_str: String = ""
 	if use_payne:
-		%PayneEngine.parse(f.get_as_text().replace("\n", ""))
+		%PayneEngine.parse(xml_content.replace("\n", ""))
 		xml_str = %PayneEngine.generate_xml()
 	else:
-		xml_str = f.get_as_text().replace("\n", "")
+		xml_str = xml_content.replace("\n", "")
 
 	var text_bits := parse_xml_str(xml_str)
 

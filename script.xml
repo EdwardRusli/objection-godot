@@ -6,6 +6,7 @@
     </cast>
     <conversation>
         <startmusic res="res://audio/music/pwr/cross-moderato.wav"/>
+        <fade.from_black />
         <dialog id="k" anim="normal">oh actually bringing back ke work force thingy</dialog>
         <dialog id="k" anim="normal">bisa argue ga kalau child nya jadi worker berarti long term family punya source of income?</dialog>
         
@@ -52,6 +53,7 @@
         <dialog id="k" anim="normal">ok bisa</dialog>
         <dialog id="k" anim="normal">gini logikanya</dialog>
         <dialog id="k" anim="pointing">do you think opa kaya bakal respect istri muda?</dialog>
+        <fade.to_black />
         <stopmusic/>
     </conversation>
 </payne>
