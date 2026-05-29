@@ -37,12 +37,6 @@ animations = [{
 "texture": ExtResource("5_dogud")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_dogud")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_dogud")
-}, {
-"duration": 1.0,
 "texture": ExtResource("6_6cm1y")
 }],
 "loop": false,
@@ -59,10 +53,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_uwjti")
+"texture": ExtResource("8_dogud")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_dogud")
+"texture": ExtResource("7_uwjti")
 }],
 "loop": true,
 "name": &"deskslam-talk",

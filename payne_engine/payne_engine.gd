@@ -46,9 +46,6 @@ var character_configs: Dictionary = {
 		"pos": "left",
 		"blip": "female",
 		"anims": ["confident", "defeated", "deskslam", "happy", "normal", "objection", "pumped", "screen", "shaking", "thinking"],
-		"intro_anims": {
-			"deskslam": 0.875
-		},
 		"anim_sounds": {
 			"deskslam": {
 				"res": "res://audio/sound/sfx-deskslam.wav",
@@ -144,9 +141,6 @@ var character_configs: Dictionary = {
 		"blip": "female",
 		"anims": ["annoyed", "deskslam", "normal", "pointing"],
 		"single_pose_anims": ["annoyed"],
-		"intro_anims": {
-			"deskslam": 0.875
-		},
 		"anim_sounds": {
 			"deskslam": {
 				"res": "res://audio/sound/sfx-deskslam.wav",
@@ -370,38 +364,53 @@ func generate_xml() -> String:
 				idle_anim = char_anim
 				talk_anim = char_anim
 
-			var intro_duration: float = char_config.get("intro_anims", {}).get(char_anim, 0.0)
-			var has_intro: bool = intro_duration > 0.0
-
 			# Set text box for character
 			output_xml.append("<nametag.set_text text=\"%s\" character=\"%s\" />" % [display_name, char_id])
-			# Play anim-specific sound (e.g. deskslam sfx) before the sprite is set
-			var anim_sound_val = char_config.get("anim_sounds", {}).get(char_anim, null)
-			if anim_sound_val != null:
-				if anim_sound_val is Dictionary:
-					var res = anim_sound_val.get("res", "")
-					var delay = anim_sound_val.get("delay", 0.0)
-					if delay > 0.0:
-						output_xml.append("<sound.play res=\"%s\" delay=\"%f\" />" % [res, delay])
-					else:
-						output_xml.append("<sound.play res=\"%s\" />" % [res])
-				elif anim_sound_val is String:
-					output_xml.append("<sound.play res=\"%s\" />" % [anim_sound_val])
 
-			# Set character idle/intro animation
-			if has_intro:
+			if char_anim == "deskslam":
+				# Hide box during slam
+				output_xml.append("<box.set_visible value=\"false\"/>\n")
+				# Play anim-specific sound (e.g. deskslam sfx) before the sprite is set
+				var anim_sound_val = char_config.get("anim_sounds", {}).get(char_anim, null)
+				if anim_sound_val != null:
+					if anim_sound_val is Dictionary:
+						var res = anim_sound_val.get("res", "")
+						var delay = anim_sound_val.get("delay", 0.0)
+						if delay > 0.0:
+							output_xml.append("<sound.play res=\"%s\" delay=\"%f\" />" % [res, delay])
+						else:
+							output_xml.append("<sound.play res=\"%s\" />" % [res])
+					elif anim_sound_val is String:
+						output_xml.append("<sound.play res=\"%s\" />" % [anim_sound_val])
+				
+				# Set character to play the transition "deskslam" animation
 				output_xml.append("<sprite.set pos=\"%s\" res=\"%s\" anim=\"%s\"/>\n" % [char_pos, char_res, char_anim])
+				# Cut camera to this character's position so the slam is seen
+				output_xml.append("<camera.cut to=\"%s\" />\n" % [char_pos])
+				# Wait for animation to finish (1.0 second)
+				output_xml.append("<wait duration=\"0.5\"/>\n")
+				# Set character to idle_anim after slam
+				output_xml.append("<sprite.set pos=\"%s\" anim=\"%s\"/>\n" % [char_pos, idle_anim])
 			else:
+				# Play anim-specific sound (e.g. deskslam sfx) before the sprite is set
+				var anim_sound_val = char_config.get("anim_sounds", {}).get(char_anim, null)
+				if anim_sound_val != null:
+					if anim_sound_val is Dictionary:
+						var res = anim_sound_val.get("res", "")
+						var delay = anim_sound_val.get("delay", 0.0)
+						if delay > 0.0:
+							output_xml.append("<sound.play res=\"%s\" delay=\"%f\" />" % [res, delay])
+						else:
+							output_xml.append("<sound.play res=\"%s\" />" % [res])
+					elif anim_sound_val is String:
+						output_xml.append("<sound.play res=\"%s\" />" % [anim_sound_val])
+				# Set character idle animation
 				output_xml.append("<sprite.set pos=\"%s\" res=\"%s\" anim=\"%s\"/>\n" % [char_pos, char_res, idle_anim])
+				# Cut camera to this character's position
+				output_xml.append("<camera.cut to=\"%s\" />\n" % [char_pos])
 
-			# Cut camera to this character's position
-			output_xml.append("<camera.cut to=\"%s\" />\n" % [char_pos])
-
-			# Short wait before starting text box / wait for intro animation
-			if has_intro:
-				output_xml.append("<wait duration=\"%f\"/>" % [intro_duration])
-			else:
-				output_xml.append("<wait duration=\"0.5\"/>")
+			# Short wait before starting text box
+			output_xml.append("<wait duration=\"0.5\"/>")
 
 			# Start character talking animation
 			if talk_anim != idle_anim:

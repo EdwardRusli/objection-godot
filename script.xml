@@ -7,7 +7,7 @@
     <conversation>
         <startmusic res="res://audio/music/pwr/cross-moderato.wav"/>
         <dialog id="k" anim="normal">oh actually bringing back ke work force thingy</dialog>
-        <dialog id="k" anim="deskslam">bisa argue ga kalau child nya jadi worker berarti long term family punya source of income?</dialog>
+        <dialog id="k" anim="normal">bisa argue ga kalau child nya jadi worker berarti long term family punya source of income?</dialog>
         
         <objection id="e" />
         <dialog id="e" anim="normal">tp klo dinikahin sm opa kaya this is invalid no?</dialog>
