@@ -33,14 +33,14 @@ script = ExtResource("3_g0edo")
 
 [node name="LeftCharacter" type="AnimatedSprite2D" parent="Foreground" unique_id=329689080]
 unique_name_in_owner = true
-position = Vector2(-2311.875, 66)
+position = Vector2(-2311.875, 40)
 scale = Vector2(0.48, 0.48)
 script = ExtResource("5_d7q3c")
 container_id = "left"
 
 [node name="LeftBench" type="Sprite2D" parent="Foreground/LeftCharacter" unique_id=602221380]
 unique_name_in_owner = true
-position = Vector2(0, -66)
+position = Vector2(0, 35.85)
 scale = Vector2(11.719, 11.719)
 texture = ExtResource("3_x5fvn")
 

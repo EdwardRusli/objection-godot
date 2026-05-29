@@ -19,11 +19,11 @@
 [ext_resource type="SpriteFrames" uid="uid://pc8lpoysy1bw" path="res://ui/evidence/evidence-left/evidence-left.tres" id="17_nsfoq"]
 [ext_resource type="AudioStream" uid="uid://d23tyxxvjexw5" path="res://audio/sound/sfx-evidenceshoop.wav" id="18_khjmp"]
 [ext_resource type="PackedScene" uid="uid://btfayeijnow7g" path="res://ui/mood_matrix/mood_matrix.tscn" id="20_w2rvm"]
+[ext_resource type="Texture2D" uid="uid://lw4eysk6rhyg" path="res://ui/next_arrow/next_arrow_new.png" id="23_22vk4"]
 [ext_resource type="Script" uid="uid://da23bga5fbvcr" path="res://effects/overlay_flash.gd" id="25_j8y13"]
 [ext_resource type="PackedScene" uid="uid://4uljkfi84i5m" path="res://ui/new_evidence/new_evidence.tscn" id="25_y6iq0"]
 [ext_resource type="Script" uid="uid://dygkb3ocnsddv" path="res://ui/exclamations/exclamation_bubble.gd" id="26_dif48"]
 [ext_resource type="Script" uid="uid://c6ol6ykljlaw0" path="res://ui/next_arrow/arrow.gd" id="26_mjk5q"]
-[ext_resource type="Texture2D" uid="uid://cqslgdnxhwf3m" path="res://ui/next_arrow/next_arrow.png" id="26_tejqb"]
 [ext_resource type="Script" uid="uid://duuvd1vttg3uv" path="res://ui/verdict/verdict.gd" id="28_32ipn"]
 [ext_resource type="PackedScene" uid="uid://dpskq5d2xahc7" path="res://ui/verdict/verdict_single_letter_label.tscn" id="29_xl8j8"]
 
@@ -135,9 +135,9 @@ unique_name_in_owner = true
 offset_left = 217.875
 offset_top = 770.455
 offset_right = 1250.0
-offset_bottom = 980.0
+offset_bottom = 971.0
 theme_override_fonts/normal_font = ExtResource("11_mq1hb")
-theme_override_font_sizes/normal_font_size = 48
+theme_override_font_sizes/normal_font_size = 40
 text = "Now, the victim entered Studio One at approximately [color=#f17038]1:00 PM.[/color]"
 scroll_active = false
 
@@ -214,17 +214,17 @@ script = ExtResource("25_j8y13")
 [node name="Arrow" type="Control" parent="." unique_id=1313471569]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1328.0
-offset_top = 902.0
-offset_right = 1328.0
-offset_bottom = 902.0
+offset_left = 1283.025
+offset_top = 813.885
+offset_right = 1283.025
+offset_bottom = 813.885
 script = ExtResource("26_mjk5q")
 
 [node name="ArrowTexture" type="TextureRect" parent="Arrow" unique_id=1986935395]
 layout_mode = 0
-offset_right = 10.0
-offset_bottom = 11.0
-texture = ExtResource("26_tejqb")
+offset_right = 68.0
+offset_bottom = 77.0
+texture = ExtResource("23_22vk4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Arrow" unique_id=1465287389]
 libraries/ = SubResource("AnimationLibrary_eecjn")

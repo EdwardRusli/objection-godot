@@ -8,7 +8,7 @@
         <startmusic res="res://audio/music/pwr/cross-moderato.wav"/>
         <dialog id="k" anim="normal">oh actually bringing back ke work force thingy</dialog>
         <dialog id="k" anim="normal">bisa argue ga kalau child nya jadi worker berarti long term family punya source of income?</dialog>
-        
+        <sound res="res://audio/sound/sfx-realization.wav"/>
         <objection id="e" />
         <dialog id="e">tp klo dinikahin sm opa kaya this is invalid no?</dialog>
         
@@ -30,7 +30,7 @@
         
         <dialog id="k" anim="normal">ed kalau lo fail this ethics class</dialog>
         <dialog id="k" anim="normal">jadi comedian aja dah</dialog>
-        
+        <sound res="res://audio/sound/sfx-realization.wav"/>
         <dialog id="p">GW SAKIT PERUT BANGSAT</dialog>
         <dialog id="p">SAKIT BANGET</dialog>
         

@@ -16,6 +16,9 @@ var current_id: String = ""
 var current_anim: String = "RANDOM"
 var current_evidence: String = ""
 
+var in_dialog: bool = false
+var dialog_inner_xml: Array[String] = []
+
 var character_configs: Dictionary = {
 	"abctest": {
 		"pos": "right",
@@ -42,7 +45,10 @@ var character_configs: Dictionary = {
 	"athena": {
 		"pos": "left",
 		"blip": "female",
-		"anims": ["confident", "defeated", "deskslam", "happy", "normal", "objection", "pumped", "screen", "shaking", "thinking"]
+		"anims": ["confident", "defeated", "deskslam", "happy", "normal", "objection", "pumped", "screen", "shaking", "thinking"],
+		"anim_sounds": {
+			"deskslam": "res://audio/sound/sfx-deskslam.wav"
+		}
 	},
 	"atmey": {
 		"anims": ["confident", "monocle", "normal", "sweating", "twitch"]
@@ -131,7 +137,10 @@ var character_configs: Dictionary = {
 		"pos": "left",
 		"blip": "female",
 		"anims": ["annoyed", "deskslam", "normal", "pointing"],
-		"single_pose_anims": ["annoyed", "deskslam", "pointing"]
+		"single_pose_anims": ["annoyed", "deskslam", "pointing"],
+		"anim_sounds": {
+			"deskslam": "res://audio/sound/sfx-deskslam.wav"
+		}
 	},
 	"killer": {
 		"anims": ["normal", "steaming", "sweating"]
@@ -269,6 +278,10 @@ func generate_xml() -> String:
 				output_xml.append("<music.play res=\"%s\" />" % [block["music"]])
 				continue
 
+		elif block["type"] == "sound":
+			output_xml.append("<sound.play res=\"%s\" />" % [block["res"]])
+			continue
+
 		elif block["type"] == "bubble":
 			var user: Dictionary = characters[block["id"]]
 			var char_id = _get_character_id_from_id(block["id"])
@@ -282,7 +295,7 @@ func generate_xml() -> String:
 			output_xml.append("<flash />")
 			output_xml.append("<sound.play res=\"%s\" />" % [sound_path])
 			output_xml.append("<bubble.animate type=\"%s\" />" % [bubble_type])
-			output_xml.append("<wait duration=\"1.5\"/>")
+			output_xml.append("<wait duration=\"1\"/>")
 			output_xml.append("<play />")
 			continue
 
@@ -338,6 +351,10 @@ func generate_xml() -> String:
 
 			# Set text box for character
 			output_xml.append("<nametag.set_text text=\"%s\" character=\"%s\" />" % [display_name, char_id])
+			# Play anim-specific sound (e.g. deskslam sfx) before the sprite is set
+			var anim_sound: String = char_config.get("anim_sounds", {}).get(char_anim, "")
+			if anim_sound != "":
+				output_xml.append("<sound.play res=\"%s\" />" % [anim_sound])
 			# Set character idle animation
 			output_xml.append("<sprite.set pos=\"%s\" res=\"%s\" anim=\"%s\"/>\n" % [char_pos, char_res, idle_anim])
 
@@ -394,6 +411,16 @@ func parse(xml_str: String):
 
 
 func _parse_element(p: XMLParser):
+	if in_dialog:
+		var tag_str = "<" + p.get_node_name()
+		for attr_i in p.get_attribute_count():
+			tag_str += " " + p.get_attribute_name(attr_i) + "=\"" + p.get_attribute_value(attr_i) + "\""
+		if p.is_empty():
+			tag_str += " /"
+		tag_str += ">"
+		dialog_inner_xml.append(tag_str)
+		return
+
 	match current_phase:
 		ParsePhase.PHASE_NONE:
 			match p.get_node_name():
@@ -419,6 +446,8 @@ func _parse_element(p: XMLParser):
 
 		ParsePhase.PHASE_CONVERSATION:
 			if p.get_node_name() == "dialog":
+				in_dialog = true
+				dialog_inner_xml.clear()
 				current_id = p.get_named_attribute_value_safe("id")
 				if current_id == "": current_id = "user"
 
@@ -455,6 +484,11 @@ func _parse_element(p: XMLParser):
 					"type": "music",
 					"music": p.get_named_attribute_value_safe("res")
 				})
+			elif p.get_node_name() == "sound":
+				dialog_blocks.append({
+					"type": "sound",
+					"res": p.get_named_attribute_value_safe("res")
+				})
 			elif p.get_node_name() == "gavel":
 				dialog_blocks.append({
 					"type": "gavel",
@@ -470,6 +504,10 @@ func _parse_element(p: XMLParser):
 
 
 func _parse_element_text(p: XMLParser):
+	if in_dialog:
+		dialog_inner_xml.append(p.get_node_data())
+		return
+
 	match current_phase:
 		ParsePhase.PHASE_CONVERSATION:
 			var raw_text = p.get_node_data().strip_edges()
@@ -487,6 +525,25 @@ func _parse_element_text(p: XMLParser):
 
 
 func _parse_element_end(p: XMLParser):
+	if in_dialog:
+		if p.get_node_name() == "dialog":
+			in_dialog = false
+			var raw_text = "".join(dialog_inner_xml).strip_edges()
+			if raw_text.length() > 0:
+				var text_blocks = box_splitter.split_text_into_blocks(raw_text)
+				for block in text_blocks:
+					dialog_blocks.append({
+						"type": "text",
+						"id": current_id,
+						"text": block.strip_edges(),
+						"anim": current_anim,
+						"evidence": current_evidence
+					})
+			return
+		else:
+			dialog_inner_xml.append("</" + p.get_node_name() + ">")
+			return
+
 	match current_phase:
 		ParsePhase.PHASE_CAST:
 			if p.get_node_name() == "cast":
