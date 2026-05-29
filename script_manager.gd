@@ -13,10 +13,13 @@ extends Node
 # Gavel slam
 # - gavel <frame>
 
+signal user_click
+
 var handlers := {
 	"blip.set": _handle_blip_set,
 	"sprite.set": _handle_sprite_set,
 	"wait": _handle_wait,
+	"wait_for_click": _handle_wait_for_click,
 	"set_text_speed": _handle_set_text_speed,
 }
 
@@ -162,6 +165,13 @@ func _handle_wait(args: Dictionary):
 		Utils.print_error("duration not provided for wait")
 		return
 	await get_tree().create_timer(float(args["duration"])).timeout
+
+func _handle_wait_for_click(_args: Dictionary):
+	await user_click
+
+func _input(event: InputEvent):
+	if (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT) or event.is_action_pressed("ui_accept"):
+		user_click.emit()
 
 func _handle_set_text_speed(args: Dictionary):
 	var new_speed := float(args.get("value", "1.0")) * TEXT_SPEED_DEFAULT
