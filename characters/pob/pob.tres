@@ -1,14 +1,40 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://chal2r53p005w"]
 
-[ext_resource type="Texture2D" uid="uid://ctc8vrudmv37n" path="res://characters/pob/normal-idle/normal-idle-1.PNG" id="1_q2ufa"]
+[ext_resource type="Texture2D" uid="uid://1hpwxv27ds46" path="res://characters/pob/crying/IMG_5428.PNG" id="1_2sfr4"]
+[ext_resource type="Texture2D" uid="uid://bjbp5u75xp6m3" path="res://characters/pob/normal-idle/IMG_5427.PNG" id="2_araae"]
+[ext_resource type="Texture2D" uid="uid://3om2d2iht8qf" path="res://characters/pob/shock/IMG_5429.PNG" id="3_4r205"]
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_q2ufa")
+"texture": ExtResource("1_2sfr4")
+}],
+"loop": true,
+"name": &"crying",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_araae")
 }],
 "loop": true,
 "name": &"normal-idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_araae")
+}],
+"loop": true,
+"name": &"normal-talk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_4r205")
+}],
+"loop": true,
+"name": &"shock",
 "speed": 5.0
 }]

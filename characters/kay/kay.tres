@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bvfb0lk6dhaxy" path="res://characters/kay/normal-idle/deskslam.PNG" id="2_5r8dp"]
 [ext_resource type="Texture2D" uid="uid://ckgkkmk025n5l" path="res://characters/kay/normal-idle/normal-idle.PNG" id="3_3hvyc"]
 [ext_resource type="Texture2D" uid="uid://vuboyms6ogxr" path="res://characters/kay/normal-idle/normal-talking.PNG" id="4_yk0pk"]
-[ext_resource type="Texture2D" uid="uid://c78gkvar6w07g" path="res://characters/kay/normal-idle/pointing.PNG" id="5_e687b"]
+[ext_resource type="Texture2D" uid="uid://byx1p6khnctkh" path="res://characters/kay/normal-idle/pointing-idle.png" id="5_5r8dp"]
+[ext_resource type="Texture2D" uid="uid://cs3jw0cj0dkai" path="res://characters/kay/normal-idle/pointing-talk.PNG" id="6_3hvyc"]
 
 [resource]
 animations = [{
@@ -45,9 +46,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_e687b")
+"texture": ExtResource("5_5r8dp")
 }],
 "loop": true,
-"name": &"pointing",
+"name": &"pointing-idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_5r8dp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3hvyc")
+}],
+"loop": true,
+"name": &"pointing-talk",
+"speed": 10.0
 }]

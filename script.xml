@@ -2,48 +2,51 @@
     <cast>
         <character id="k" display_name="Kay" character="kay" />
         <character id="e" display_name="Ed" character="ed" />
-        <character id="p" display_name="Pob" character="pob" />
+        <character id="p" display_name="Phoebe" character="pob" />
     </cast>
     <conversation>
         <startmusic res="res://audio/music/pwr/cross-moderato.wav"/>
         <dialog id="k" anim="normal">oh actually bringing back ke work force thingy</dialog>
-        <dialog id="k" anim="normal">bisa argue ga kalau child nya jadi worker berarti long term family punya source of income?</dialog>
-        <sound res="res://audio/sound/sfx-realization.wav"/>
+        <dialog id="k" anim="pointing">bisa argue ga kalau child nya jadi worker berarti long term family punya source of income?</dialog>
+        
         <objection id="e" />
-        <dialog id="e">tp klo dinikahin sm opa kaya this is invalid no?</dialog>
+        <dialog id="e" anim="normal">tp klo dinikahin sm opa kaya this is invalid no?</dialog>
         
         <stopmusic />
-        <dialog id="p">...</dialog>
+
+        <dialog id="p" anim="shock">...</dialog>
         <dialog id="k" anim="annoyed">...</dialog>
-        <dialog id="e">...</dialog>
+        <dialog id="e" anim="normal">...</dialog>
         
         <objection id="p" />
         <startmusic />
-        <dialog id="p">anjing 😭</dialog>
+        <dialog id="p" anim="crying">anjing 😭</dialog>
         
         <dialog id="k" anim="normal">LMAO</dialog>
         <dialog id="k" anim="normal">LMAOOOOO</dialog>
         <dialog id="k" anim="deskslam">I CANT STOP LAUGHING</dialog>
         
-        <dialog id="e">GBLKKKKKKKKKKKKK 😭</dialog>
-        <dialog id="e">😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭</dialog>
+        <dialog id="e" anim="crying">GBLKKKKKKKKKKKKK 😭</dialog>
+        <dialog id="e" anim="crying">😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭😭</dialog>
         
         <dialog id="k" anim="normal">ed kalau lo fail this ethics class</dialog>
         <dialog id="k" anim="normal">jadi comedian aja dah</dialog>
         <sound res="res://audio/sound/sfx-realization.wav"/>
-        <dialog id="p">GW SAKIT PERUT BANGSAT</dialog>
-        <dialog id="p">SAKIT BANGET</dialog>
+        <dialog id="p" anim="crying">GW SAKIT PERUT BANGSAT</dialog>
+        <dialog id="p" anim="crying">SAKIT BANGET</dialog>
         
         <takethat id="e" />
-        <dialog id="e">FAKLAH</dialog>
-        <dialog id="e">EVEN THE NAZI EXAMPLE WAS BETTER DEFENSE THAN THIS 😭</dialog>
+        <dialog id="e" anim="normal">FAKLAH</dialog>
+        <sound res="res://audio/sound/sfx-whoops.wav"/>
+        <dialog id="e" anim="crying">EVEN THE NAZI EXAMPLE WAS BETTER DEFENSE THAN THIS 😭</dialog>
         
         <holdit id="k" />
         <dialog id="k" anim="normal">STOP</dialog>
         
-        <dialog id="p">PERUT GUE</dialog>
-        <dialog id="e">ini rado looking at me like a clinically insane man for laughing silently</dialog>
-        <dialog id="p">RADO WOULD THINK YOU <color value="aa-text-red">ARE</color> A CLINICALLY INSANE MAN IF HE READ THIS BULLSHIT</dialog>
+        <dialog id="p" anim="crying">PERUT GUE</dialog>
+        <dialog id="e" anim="normal">ini rado looking at me like a clinically insane man for laughing silently</dialog>
+        <sound res="res://audio/sound/sfx-supershock.wav"/>
+        <dialog id="p" anim="crying">RADO WOULD THINK YOU <color value="aa-text-red">ARE</color> A CLINICALLY INSANE MAN IF HE READ THIS BULLSHIT</dialog>
         
         <dialog id="k" anim="normal">ok bisa</dialog>
         <dialog id="k" anim="normal">gini logikanya</dialog>

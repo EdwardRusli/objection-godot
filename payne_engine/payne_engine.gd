@@ -77,7 +77,7 @@ var character_configs: Dictionary = {
 	},
 	"ed": {
 		"pos": "right",
-		"anims": ["normal"]
+		"anims": ["normal", "crying"]
 	},
 	"edgeworth": {
 		"pos": "right",
@@ -137,7 +137,7 @@ var character_configs: Dictionary = {
 		"pos": "left",
 		"blip": "female",
 		"anims": ["annoyed", "deskslam", "normal", "pointing"],
-		"single_pose_anims": ["annoyed", "deskslam", "pointing"],
+		"single_pose_anims": ["annoyed", "deskslam"],
 		"anim_sounds": {
 			"deskslam": "res://audio/sound/sfx-deskslam.wav"
 		}
@@ -228,7 +228,8 @@ var character_configs: Dictionary = {
 	"pob": {
 		"pos": "counsel",
 		"blip": "female",
-		"anims": ["normal"]
+		"anims": ["normal", "crying", "shock"],
+		"single_pose_anims": ["crying", "shock"]
 	},
 	"polly": {
 		"anims": ["normal"]
@@ -280,6 +281,14 @@ func generate_xml() -> String:
 
 		elif block["type"] == "sound":
 			output_xml.append("<sound.play res=\"%s\" />" % [block["res"]])
+			continue
+
+		elif block["type"] == "flash":
+			var duration: String = block.get("duration", "")
+			if duration != "":
+				output_xml.append("<flash duration=\"%s\" />" % [duration])
+			else:
+				output_xml.append("<flash />")
 			continue
 
 		elif block["type"] == "bubble":
@@ -488,6 +497,11 @@ func _parse_element(p: XMLParser):
 				dialog_blocks.append({
 					"type": "sound",
 					"res": p.get_named_attribute_value_safe("res")
+				})
+			elif p.get_node_name() == "flash":
+				dialog_blocks.append({
+					"type": "flash",
+					"duration": p.get_named_attribute_value_safe("duration")
 				})
 			elif p.get_node_name() == "gavel":
 				dialog_blocks.append({

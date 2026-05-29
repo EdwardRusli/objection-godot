@@ -1,0 +1,49 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bh7e010cuvrfy"]
+
+[ext_resource type="Texture2D" uid="uid://c8cl4tqyyctq8" path="res://characters/ed/crying-idle/IMG_5433.PNG" id="1_c6433"]
+[ext_resource type="Texture2D" uid="uid://7fapoe3wfsed" path="res://characters/ed/crying-talk/IMG_5431.png" id="2_h0f2s"]
+[ext_resource type="Texture2D" uid="uid://dvy0cama5d4lp" path="res://characters/ed/normal-idle/IMG_5431.PNG" id="2_nbkqr"]
+[ext_resource type="Texture2D" uid="uid://d3v0qhyxvbjgp" path="res://characters/ed/crying-talk/IMG_5433.PNG" id="3_c6uxh"]
+[ext_resource type="Texture2D" uid="uid://bh12tnadfacar" path="res://characters/ed/normal-talk/IMG_5431.PNG" id="5_cy2ij"]
+[ext_resource type="Texture2D" uid="uid://6lljmebmh0va" path="res://characters/ed/normal-talk/IMG_5432.PNG" id="6_l718q"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_c6433")
+}],
+"loop": true,
+"name": &"crying-idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_h0f2s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_c6uxh")
+}],
+"loop": true,
+"name": &"crying-talk",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nbkqr")
+}],
+"loop": true,
+"name": &"normal-idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_cy2ij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_l718q")
+}],
+"loop": true,
+"name": &"normal-talk",
+"speed": 10.0
+}]

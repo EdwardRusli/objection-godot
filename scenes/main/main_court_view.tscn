@@ -46,13 +46,15 @@ texture = ExtResource("3_x5fvn")
 
 [node name="RightCharacter" type="AnimatedSprite2D" parent="Foreground" unique_id=505021457]
 unique_name_in_owner = true
-position = Vector2(2311.875, 0)
+position = Vector2(2170.565, 69.18)
+scale = Vector2(0.505, 0.505)
 script = ExtResource("5_d7q3c")
 container_id = "right"
 
 [node name="RightBench" type="Sprite2D" parent="Foreground/RightCharacter" unique_id=82452965]
 unique_name_in_owner = true
-scale = Vector2(5.625, 5.625)
+position = Vector2(286.355, -19.4)
+scale = Vector2(11.139, 11.139)
 texture = ExtResource("3_x5fvn")
 flip_h = true
 

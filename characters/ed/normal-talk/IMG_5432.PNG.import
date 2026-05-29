@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c78gkvar6w07g"
-path="res://.godot/imported/pointing.PNG-e4805e862305e9ae6be51756f8b73de3.ctex"
+uid="uid://6lljmebmh0va"
+path="res://.godot/imported/IMG_5432.PNG-6ad8a341e2bb8a25ba5f220f980dfaee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/kay/normal-idle/pointing.PNG"
-dest_files=["res://.godot/imported/pointing.PNG-e4805e862305e9ae6be51756f8b73de3.ctex"]
+source_file="res://characters/ed/normal-talk/IMG_5432.PNG"
+dest_files=["res://.godot/imported/IMG_5432.PNG-6ad8a341e2bb8a25ba5f220f980dfaee.ctex"]
 
 [params]
 

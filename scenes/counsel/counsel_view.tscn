@@ -13,7 +13,8 @@ texture = ExtResource("1_tw7bp")
 metadata/_edit_lock_ = true
 
 [node name="Counsel" type="AnimatedSprite2D" parent="." unique_id=604123629]
-position = Vector2(-66.935, 172.235)
+position = Vector2(15.765, 50.145)
+scale = Vector2(0.49, 0.49)
 flip_h = true
 script = ExtResource("3_5ln6b")
 container_id = "counsel"
