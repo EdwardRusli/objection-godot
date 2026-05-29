@@ -2,7 +2,7 @@ extends Control
 
 var tw: Tween = null
 
-const BOX_POS_OUT_Y = 76
+const BOX_POS_OUT_Y = 76 * 5.625
 const ANIM_TIME = 18.0 / 60.0
 
 @onready var box_text: RichTextLabel = %DialogueLabel

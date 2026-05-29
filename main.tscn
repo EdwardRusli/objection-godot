@@ -46,7 +46,6 @@ scale = Vector2(5.625, 5.625)
 [node name="CounselView" parent="." unique_id=361191430 instance=ExtResource("17_apcaq")]
 unique_name_in_owner = true
 position = Vector2(0, 2880)
-scale = Vector2(5.625, 5.625)
 
 [node name="BehindCourtView" parent="." unique_id=356151274 instance=ExtResource("10_hg0yk")]
 unique_name_in_owner = true

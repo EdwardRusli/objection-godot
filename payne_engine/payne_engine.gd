@@ -69,6 +69,10 @@ var character_configs: Dictionary = {
 		"blip": "female",
 		"anims": ["normal", "sweating", "thinking"]
 	},
+	"ed": {
+		"pos": "right",
+		"anims": ["normal"]
+	},
 	"edgeworth": {
 		"pos": "right",
 		"blip": "male",
@@ -210,6 +214,11 @@ var character_configs: Dictionary = {
 			"objection": "res://ui/exclamations/exclamation_sounds/objection-phoenix.wav",
 			"takethat": "res://ui/exclamations/exclamation_sounds/takethat-phoenix.wav"
 		}
+	},
+	"pob": {
+		"pos": "counsel",
+		"blip": "female",
+		"anims": ["normal"]
 	},
 	"polly": {
 		"anims": ["normal"]

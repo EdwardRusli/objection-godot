@@ -8,10 +8,13 @@
 
 [node name="CounselViewBackground" type="Sprite2D" parent="." unique_id=2066690994]
 z_index = -10
+scale = Vector2(5.625, 5.625)
 texture = ExtResource("1_tw7bp")
 metadata/_edit_lock_ = true
 
 [node name="Counsel" type="AnimatedSprite2D" parent="." unique_id=604123629]
+position = Vector2(-66.935, 172.235)
+flip_h = true
 script = ExtResource("3_5ln6b")
 container_id = "counsel"
 metadata/_edit_lock_ = true

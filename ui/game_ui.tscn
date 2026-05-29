@@ -1,12 +1,10 @@
 [gd_scene format=3 uid="uid://cavxmwjgdsolv"]
 
 [ext_resource type="Script" uid="uid://ca23jlw3brvj" path="res://ui/game_ui.gd" id="1_i61tc"]
-[ext_resource type="Texture2D" uid="uid://b3x4aoo200rhg" path="res://ui/text_box/nametag_left.png" id="1_uinmu"]
+[ext_resource type="Texture2D" uid="uid://csew5oahscbx8" path="res://ui/text_box/nametag_new.PNG" id="1_uinmu"]
 [ext_resource type="PackedScene" uid="uid://cdt8wkw6ibt27" path="res://ui/mood_matrix/noise/mm_noise.tscn" id="2_22ds2"]
-[ext_resource type="Texture2D" uid="uid://ckysnuyauklhy" path="res://ui/text_box/nametag_center.png" id="2_xtvfo"]
 [ext_resource type="PackedScene" uid="uid://ee5bf1t2kme1" path="res://ui/mood_matrix/shutdown/mm_shutdown.tscn" id="3_4ax0h"]
 [ext_resource type="Script" uid="uid://c0634a8t2xntl" path="res://effects/shaker/control_shaker.gd" id="3_op4cl"]
-[ext_resource type="Texture2D" uid="uid://biw5x0gyerjj0" path="res://ui/text_box/nametag_right.png" id="3_vdgvt"]
 [ext_resource type="Script" uid="uid://dpqf0cybqssbw" path="res://ui/text_box/box_container.gd" id="5_6gk4r"]
 [ext_resource type="Texture2D" uid="uid://cuam54glmbs4m" path="res://ui/text_box/mainbox.png" id="5_r7fiw"]
 [ext_resource type="Script" uid="uid://bpt8a16polm6p" path="res://ui/text_box/nametag_container.gd" id="7_3rn5j"]
@@ -100,45 +98,35 @@ texture = ExtResource("5_r7fiw")
 
 [node name="Nametag" type="HBoxContainer" parent="BoxShaker/InnerContainer/Control" unique_id=521442116]
 layout_mode = 0
-offset_left = 158.555
-offset_top = 699.745
-offset_right = 382.55505
-offset_bottom = 745.745
+offset_left = 119.94
+offset_top = 685.615
+offset_right = 405.94
+offset_bottom = 753.615
+alignment = 1
 
 [node name="NametagContainer" type="MarginContainer" parent="BoxShaker/InnerContainer/Control/Nametag" unique_id=1827642575]
 custom_minimum_size = Vector2(0, 14)
 layout_mode = 2
 script = ExtResource("7_3rn5j")
 
-[node name="NametagBackground" type="HBoxContainer" parent="BoxShaker/InnerContainer/Control/Nametag/NametagContainer" unique_id=479184489]
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="NameTagLeft" type="TextureRect" parent="BoxShaker/InnerContainer/Control/Nametag/NametagContainer/NametagBackground" unique_id=1032795]
+[node name="NametagBackground" type="TextureRect" parent="BoxShaker/InnerContainer/Control/Nametag/NametagContainer" unique_id=479184489]
 layout_mode = 2
 texture = ExtResource("1_uinmu")
-
-[node name="NameTagCenter" type="TextureRect" parent="BoxShaker/InnerContainer/Control/Nametag/NametagContainer/NametagBackground" unique_id=63355275]
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("2_xtvfo")
-
-[node name="NameTagRight" type="TextureRect" parent="BoxShaker/InnerContainer/Control/Nametag/NametagContainer/NametagBackground" unique_id=382856109]
-layout_mode = 2
-texture = ExtResource("3_vdgvt")
 
 [node name="NametagLabelContainer" type="MarginContainer" parent="BoxShaker/InnerContainer/Control/Nametag/NametagContainer" unique_id=1520174691]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/margin_left = 3
 theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 9
 
 [node name="NametagLabel" type="Label" parent="BoxShaker/InnerContainer/Control/Nametag/NametagContainer/NametagLabelContainer" unique_id=2036470032]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("11_mq1hb")
-theme_override_font_sizes/font_size = 45
+theme_override_font_sizes/font_size = 40
 text = "Gumshoe"
+horizontal_alignment = 1
 
 [node name="MoodMatrix" parent="." unique_id=523897583 instance=ExtResource("20_w2rvm")]
 
@@ -205,6 +193,7 @@ expand_mode = 2
 stream = ExtResource("18_khjmp")
 
 [node name="ExclamationBubbleContainer" type="Node2D" parent="." unique_id=359767381]
+scale = Vector2(5.625, 5.625)
 script = ExtResource("26_dif48")
 
 [node name="InnerContainer" type="Node2D" parent="ExclamationBubbleContainer" unique_id=1281246051]
