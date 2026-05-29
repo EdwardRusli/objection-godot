@@ -52,11 +52,11 @@ func _ready():
 func _display_text():
 	var path: String = "res://script.xml"
 
-	var use_payne: bool = false
+	var use_payne: bool = true
 
 	for arg in OS.get_cmdline_user_args():
-		if arg == "--payne":
-			use_payne = true
+		if arg == "--no-payne" or arg == "--xml":
+			use_payne = false
 		elif arg.begins_with("--render-script="):
 			path = arg.get_slice("=", 1)
 			if (path[0] == "\"" and path[-1] == "\"") or (path[0] == "'" and path[-1] == "'"):

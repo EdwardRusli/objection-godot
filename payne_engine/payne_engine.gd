@@ -17,6 +17,9 @@ var current_anim: String = "RANDOM"
 var current_evidence: String = ""
 
 var character_configs: Dictionary = {
+	"abctest": {
+		"anims": ["normal"]
+	},
 	"acro": {
 		"anims": ["cries", "disappointed", "normal", "serious"]
 	},
@@ -342,7 +345,7 @@ func generate_xml() -> String:
 
 			if dialog_blocks.size() == block_i + 1 or dialog_blocks[block_i + 1]["type"] != "newevidence":
 				output_xml.append("<arrow.set_visible/>\n")
-				output_xml.append("<wait duration=\"2.0\"/>\n")
+				output_xml.append("<wait_for_click />\n")
 
 				output_xml.append("<arrow.set_visible value=\"false\"/>\n")
 				output_xml.append("<sound.play res=\"res://audio/sound/sfx-pichoop.wav\" />")

@@ -1,0 +1,41 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bwxdtvx8k065b"]
+
+[ext_resource type="Texture2D" uid="uid://b1uyfrfeg77qm" path="res://characters/abctest/normal-ide/1.png" id="1_efw5t"]
+[ext_resource type="Texture2D" uid="uid://ckexarep4yx35" path="res://characters/abctest/normal-ide/2.png" id="2_1pjes"]
+[ext_resource type="Texture2D" uid="uid://di7bpfvs7iv85" path="res://characters/abctest/normal-ide/3.png" id="3_2e33u"]
+[ext_resource type="Texture2D" uid="uid://bau8ecjc3fmnj" path="res://characters/abctest/normal-ide/4.png" id="4_j77uo"]
+[ext_resource type="Texture2D" uid="uid://db48ghhtb6s0i" path="res://characters/abctest/normal-ide/5.png" id="5_kjyrh"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_efw5t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1pjes")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2e33u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_j77uo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kjyrh")
+}],
+"loop": true,
+"name": &"normal-idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1pjes")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2e33u")
+}],
+"loop": true,
+"name": &"normal-talk",
+"speed": 5.0
+}]
