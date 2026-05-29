@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bf1hsaiiken00"]
 
-[ext_resource type="Texture2D" uid="uid://7hf18s3ktxh5" path="res://scenes/main/bg_main.png" id="1_k8f7i"]
+[ext_resource type="Texture2D" uid="uid://bihptjx06nwjh" path="res://scenes/main/bg_main_scaled.png" id="1_twm5d"]
 [ext_resource type="Script" uid="uid://krlb2pf6iqxl" path="res://scenes/main/foreground_parallax_effect.gd" id="3_g0edo"]
 [ext_resource type="Texture2D" uid="uid://3tv08jnwudpw" path="res://scenes/main/pr_bench.png" id="3_x5fvn"]
 [ext_resource type="Script" uid="uid://dfievmc3jlsp0" path="res://camera/camera_position.gd" id="4_ikhnx"]
@@ -12,15 +12,15 @@
 [node name="CourtBackground" type="Sprite2D" parent="." unique_id=215285246]
 unique_name_in_owner = true
 z_index = -10
-texture = ExtResource("1_k8f7i")
+texture = ExtResource("1_twm5d")
 
 [node name="LeftCamera" type="Node2D" parent="." unique_id=706349195]
-position = Vector2(-520, 0)
+position = Vector2(-2925, 0)
 script = ExtResource("4_ikhnx")
 camera_id = "left"
 
 [node name="RightCamera" type="Node2D" parent="." unique_id=706531]
-position = Vector2(520, 0)
+position = Vector2(2925, 0)
 script = ExtResource("4_ikhnx")
 camera_id = "right"
 
@@ -29,12 +29,12 @@ script = ExtResource("4_ikhnx")
 camera_id = "center"
 
 [node name="Foreground" type="Node2D" parent="." unique_id=1297735729]
-position = Vector2(-109, 0)
 script = ExtResource("3_g0edo")
 
 [node name="LeftCharacter" type="AnimatedSprite2D" parent="Foreground" unique_id=329689080]
 unique_name_in_owner = true
-position = Vector2(-411, 0)
+position = Vector2(-2311.875, 0)
+scale = Vector2(5.625, 5.625)
 script = ExtResource("5_d7q3c")
 container_id = "left"
 
@@ -44,7 +44,8 @@ texture = ExtResource("3_x5fvn")
 
 [node name="RightCharacter" type="AnimatedSprite2D" parent="Foreground" unique_id=505021457]
 unique_name_in_owner = true
-position = Vector2(411, 0)
+position = Vector2(2311.875, 0)
+scale = Vector2(5.625, 5.625)
 script = ExtResource("5_d7q3c")
 container_id = "right"
 
@@ -55,6 +56,7 @@ flip_h = true
 
 [node name="CenterCharacter" type="AnimatedSprite2D" parent="Foreground" unique_id=192026712]
 unique_name_in_owner = true
+scale = Vector2(5.625, 5.625)
 script = ExtResource("5_d7q3c")
 container_id = "center"
 

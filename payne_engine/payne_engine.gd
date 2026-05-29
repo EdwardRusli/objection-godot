@@ -18,6 +18,7 @@ var current_evidence: String = ""
 
 var character_configs: Dictionary = {
 	"abctest": {
+		"pos": "right",
 		"anims": ["normal"]
 	},
 	"acro": {

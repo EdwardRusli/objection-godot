@@ -4,9 +4,9 @@ extends Node2D
 var tw: Tween = null
 
 const POSITIONS_TO_OFFSETS = {
-	"left": -109.0,
+	"left": -109.0 * 5.625,
 	"center": 0.0,
-	"right": 109.0
+	"right": 109.0 * 5.625
 }
 
 # Called when the node enters the scene tree for the first time.

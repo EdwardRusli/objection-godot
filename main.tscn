@@ -37,7 +37,6 @@ typewriter_blip = ExtResource("11_cis7q")
 
 [node name="MainCourtView" parent="." unique_id=200518689 instance=ExtResource("17_43555")]
 unique_name_in_owner = true
-scale = Vector2(5.625, 5.625)
 
 [node name="JudgeView" parent="." unique_id=451937967 instance=ExtResource("18_btfy3")]
 unique_name_in_owner = true

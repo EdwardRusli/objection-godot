@@ -7,11 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://ee5bf1t2kme1" path="res://ui/mood_matrix/shutdown/mm_shutdown.tscn" id="3_4ax0h"]
 [ext_resource type="Script" uid="uid://c0634a8t2xntl" path="res://effects/shaker/control_shaker.gd" id="3_op4cl"]
 [ext_resource type="Texture2D" uid="uid://biw5x0gyerjj0" path="res://ui/text_box/nametag_right.png" id="3_vdgvt"]
-[ext_resource type="FontFile" uid="uid://faumch8kfu2c" path="res://ui/text_box/font/ace-name/ace-name.ttf" id="4_b14rb"]
 [ext_resource type="Script" uid="uid://dpqf0cybqssbw" path="res://ui/text_box/box_container.gd" id="5_6gk4r"]
-[ext_resource type="Texture2D" uid="uid://2xbilq1bbwrb" path="res://ui/text_box/mainbox.png" id="5_r7fiw"]
+[ext_resource type="Texture2D" uid="uid://cuam54glmbs4m" path="res://ui/text_box/mainbox.png" id="5_r7fiw"]
 [ext_resource type="Script" uid="uid://bpt8a16polm6p" path="res://ui/text_box/nametag_container.gd" id="7_3rn5j"]
 [ext_resource type="PackedScene" uid="uid://c3hlwg4rh13f1" path="res://ui/flashing_segment_label/flashing_segment_label.tscn" id="11_2501h"]
+[ext_resource type="FontFile" uid="uid://c44r21t8cipsp" path="res://fonts/2019 Trilogy Textbox/FOT-ModeMinBLargeStd-R.otf" id="11_mq1hb"]
 [ext_resource type="PackedScene" uid="uid://dcitg4aymosj" path="res://ui/witness_testimony/witness_testimony_intro.tscn" id="12_0ob4r"]
 [ext_resource type="Script" uid="uid://c16luqchb24gw" path="res://ui/evidence/evidence_handler.gd" id="13_atwk1"]
 [ext_resource type="PackedScene" uid="uid://brxypopoc7mg5" path="res://ui/text_box/dialogue_label.tscn" id="13_mq1hb"]
@@ -100,9 +100,10 @@ texture = ExtResource("5_r7fiw")
 
 [node name="Nametag" type="HBoxContainer" parent="BoxShaker/InnerContainer/Control" unique_id=521442116]
 layout_mode = 0
-offset_top = 115.0
-offset_right = 49.0
-offset_bottom = 129.0
+offset_left = 158.555
+offset_top = 699.745
+offset_right = 382.55505
+offset_bottom = 745.745
 
 [node name="NametagContainer" type="MarginContainer" parent="BoxShaker/InnerContainer/Control/Nametag" unique_id=1827642575]
 custom_minimum_size = Vector2(0, 14)
@@ -135,26 +136,35 @@ theme_override_constants/margin_right = 3
 [node name="NametagLabel" type="Label" parent="BoxShaker/InnerContainer/Control/Nametag/NametagContainer/NametagLabelContainer" unique_id=2036470032]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_fonts/font = ExtResource("4_b14rb")
-theme_override_font_sizes/font_size = 8
+theme_override_fonts/font = ExtResource("11_mq1hb")
+theme_override_font_sizes/font_size = 45
 text = "Gumshoe"
 
 [node name="MoodMatrix" parent="." unique_id=523897583 instance=ExtResource("20_w2rvm")]
 
 [node name="DialogueLabel" parent="." unique_id=1592792013 instance=ExtResource("13_mq1hb")]
 unique_name_in_owner = true
-offset_left = 56.25
-offset_top = 742.5
-offset_right = 1411.875
-offset_bottom = 1051.875
-theme_override_font_sizes/normal_font_size = 90
+offset_left = 246.0
+offset_top = 765.0
+offset_right = 1221.875
+offset_bottom = 999.0
+theme_override_fonts/normal_font = ExtResource("11_mq1hb")
+theme_override_font_sizes/normal_font_size = 48
+text = "Now, the victim entered Studio One at approximately [color=#f17038]1:00 PM.[/color]"
 scroll_active = false
 
 [node name="FlashingSegmentLabel" parent="." unique_id=1443218369 instance=ExtResource("11_2501h")]
+offset_left = 11.25
+offset_top = 16.875
+offset_right = 568.125
+offset_bottom = 202.5
+scale = Vector2(1, 1)
+theme_override_font_sizes/font_size = 180
 
 [node name="WitnessTestimonyIntro" parent="." unique_id=528341098 instance=ExtResource("12_0ob4r")]
 
 [node name="EvidenceHandler" type="Node2D" parent="." unique_id=1237966044]
+scale = Vector2(5.625, 5.625)
 script = ExtResource("13_atwk1")
 
 [node name="EvidenceLeft" type="AnimatedSprite2D" parent="EvidenceHandler" unique_id=905061841]
@@ -215,10 +225,10 @@ script = ExtResource("25_j8y13")
 [node name="Arrow" type="Control" parent="." unique_id=1313471569]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 236.0
-offset_top = 172.0
-offset_right = 236.0
-offset_bottom = 172.0
+offset_left = 1328.0
+offset_top = 902.0
+offset_right = 1328.0
+offset_bottom = 902.0
 script = ExtResource("26_mjk5q")
 
 [node name="ArrowTexture" type="TextureRect" parent="Arrow" unique_id=1986935395]
@@ -245,3 +255,4 @@ script = ExtResource("28_32ipn")
 single_letter_label = ExtResource("29_xl8j8")
 
 [node name="NewEvidence" parent="." unique_id=260725490 instance=ExtResource("25_y6iq0")]
+scale = Vector2(5.625, 5.625)
