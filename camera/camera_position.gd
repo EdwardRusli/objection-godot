@@ -2,8 +2,8 @@
 class_name CameraPosition
 extends Node2D
 
-const GAME_WIDTH = 256
-const GAME_HEIGHT = 192
+const GAME_WIDTH = 1440
+const GAME_HEIGHT = 1080
 
 @export var camera_id: String = ""
 static var positions: Dictionary = {}

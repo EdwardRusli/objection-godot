@@ -37,29 +37,36 @@ typewriter_blip = ExtResource("11_cis7q")
 
 [node name="MainCourtView" parent="." unique_id=200518689 instance=ExtResource("17_43555")]
 unique_name_in_owner = true
+scale = Vector2(5.625, 5.625)
 
 [node name="JudgeView" parent="." unique_id=451937967 instance=ExtResource("18_btfy3")]
 unique_name_in_owner = true
-position = Vector2(0, 256)
+position = Vector2(0, 1440)
+scale = Vector2(5.625, 5.625)
 
 [node name="CounselView" parent="." unique_id=361191430 instance=ExtResource("17_apcaq")]
 unique_name_in_owner = true
-position = Vector2(0, 512)
+position = Vector2(0, 2880)
+scale = Vector2(5.625, 5.625)
 
 [node name="BehindCourtView" parent="." unique_id=356151274 instance=ExtResource("10_hg0yk")]
 unique_name_in_owner = true
-position = Vector2(0, 768)
+position = Vector2(0, 4320)
+scale = Vector2(5.625, 5.625)
 
 [node name="ActionLinesView" parent="." unique_id=858518367 instance=ExtResource("11_l7imp")]
 unique_name_in_owner = true
-position = Vector2(0, 1024)
+position = Vector2(0, 5760)
+scale = Vector2(5.625, 5.625)
 
 [node name="GavelSlamView" parent="." unique_id=213206636 instance=ExtResource("12_2j504")]
 unique_name_in_owner = true
-position = Vector2(0, 1280)
+position = Vector2(0, 7200)
+scale = Vector2(5.625, 5.625)
 
 [node name="PayneEngine" parent="." unique_id=1835586967 instance=ExtResource("12_ryguw")]
 unique_name_in_owner = true
+scale = Vector2(5.625, 5.625)
 
 [node name="ScriptManager" type="Node" parent="." unique_id=485835766]
 unique_name_in_owner = true
@@ -73,6 +80,7 @@ script = ExtResource("15_n5jm8")
 
 [node name="CameraShaker" type="Node2D" parent="." unique_id=382758064]
 unique_name_in_owner = true
+scale = Vector2(5.625, 5.625)
 script = ExtResource("16_mecxv")
 
 [node name="InnerContainer" type="Node2D" parent="CameraShaker" unique_id=1292854040]

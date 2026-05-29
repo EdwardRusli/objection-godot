@@ -15,10 +15,10 @@
 [ext_resource type="PackedScene" uid="uid://dcitg4aymosj" path="res://ui/witness_testimony/witness_testimony_intro.tscn" id="12_0ob4r"]
 [ext_resource type="Script" uid="uid://c16luqchb24gw" path="res://ui/evidence/evidence_handler.gd" id="13_atwk1"]
 [ext_resource type="PackedScene" uid="uid://brxypopoc7mg5" path="res://ui/text_box/dialogue_label.tscn" id="13_mq1hb"]
-[ext_resource type="SpriteFrames" path="res://ui/evidence/evidence-right/evidence-right.tres" id="15_eocud"]
+[ext_resource type="SpriteFrames" uid="uid://ceq7abcu1lqry" path="res://ui/evidence/evidence-right/evidence-right.tres" id="15_eocud"]
 [ext_resource type="Texture2D" uid="uid://beaqrjyvyadas" path="res://icon-old.svg" id="16_2yr5j"]
 [ext_resource type="Script" uid="uid://cho5omt3ky2hs" path="res://ui/evidence/evidence_box.gd" id="16_v147p"]
-[ext_resource type="SpriteFrames" path="res://ui/evidence/evidence-left/evidence-left.tres" id="17_nsfoq"]
+[ext_resource type="SpriteFrames" uid="uid://pc8lpoysy1bw" path="res://ui/evidence/evidence-left/evidence-left.tres" id="17_nsfoq"]
 [ext_resource type="AudioStream" uid="uid://d23tyxxvjexw5" path="res://audio/sound/sfx-evidenceshoop.wav" id="18_khjmp"]
 [ext_resource type="PackedScene" uid="uid://btfayeijnow7g" path="res://ui/mood_matrix/mood_matrix.tscn" id="20_w2rvm"]
 [ext_resource type="Script" uid="uid://da23bga5fbvcr" path="res://effects/overlay_flash.gd" id="25_j8y13"]
@@ -93,9 +93,9 @@ script = ExtResource("5_6gk4r")
 
 [node name="NewBoxBackground" type="TextureRect" parent="BoxShaker/InnerContainer/Control" unique_id=427895711]
 layout_mode = 0
-offset_top = 128.0
-offset_right = 256.0
-offset_bottom = 192.0
+offset_top = 720.0
+offset_right = 1440.0
+offset_bottom = 987.0
 texture = ExtResource("5_r7fiw")
 
 [node name="Nametag" type="HBoxContainer" parent="BoxShaker/InnerContainer/Control" unique_id=521442116]
@@ -143,6 +143,11 @@ text = "Gumshoe"
 
 [node name="DialogueLabel" parent="." unique_id=1592792013 instance=ExtResource("13_mq1hb")]
 unique_name_in_owner = true
+offset_left = 56.25
+offset_top = 742.5
+offset_right = 1411.875
+offset_bottom = 1051.875
+theme_override_font_sizes/normal_font_size = 90
 scroll_active = false
 
 [node name="FlashingSegmentLabel" parent="." unique_id=1443218369 instance=ExtResource("11_2501h")]
