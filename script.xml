@@ -1,11 +1,8 @@
 <payne>
     <cast>
-        <character id="abc" display_name="ABC Test" character="abctest" />
+        <character id="k" display_name="Kay" character="kay" />
     </cast>
     <conversation>
-        <startmusic res="res://audio/music/pwr/cross-moderato.wav"/>
-        <dialog id="abc" anim="normal">test dialog</dialog>
-        <dialog id="abc" anim="normal">It should compile and render this text correctly with talking/idle animations.</dialog>
-        <stopmusic/>
+        <dialog id="k">test!</dialog>
     </conversation>
 </payne>

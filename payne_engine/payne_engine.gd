@@ -123,6 +123,11 @@ var character_configs: Dictionary = {
 		},
 		"anims": ["badmood", "break", "normal", "smirk", "snap", "sweat"]
 	},
+	"kay": {
+		"pos": "left",
+		"blip": "female",
+		"anims": ["normal"]
+	},
 	"killer": {
 		"anims": ["normal", "steaming", "sweating"]
 	},

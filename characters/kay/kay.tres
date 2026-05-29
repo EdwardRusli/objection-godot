@@ -1,3 +1,22 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://xiixpehxie51"]
 
+[ext_resource type="Texture2D" uid="uid://c0gqst74ocqiw" path="res://characters/kay/normal-idle/normal-idle-1.png" id="normal-idle-1"]
+
 [resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("normal-idle-1")
+}],
+"loop": true,
+"name": &"normal-idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("normal-idle-1")
+}],
+"loop": true,
+"name": &"normal-talk",
+"speed": 1.0
+}]

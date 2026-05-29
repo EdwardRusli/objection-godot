@@ -33,33 +33,34 @@ script = ExtResource("3_g0edo")
 
 [node name="LeftCharacter" type="AnimatedSprite2D" parent="Foreground" unique_id=329689080]
 unique_name_in_owner = true
-position = Vector2(-2311.875, 0)
-scale = Vector2(5.625, 5.625)
+position = Vector2(-2311.875, 66)
 script = ExtResource("5_d7q3c")
 container_id = "left"
 
 [node name="LeftBench" type="Sprite2D" parent="Foreground/LeftCharacter" unique_id=602221380]
 unique_name_in_owner = true
+position = Vector2(0, -66)
+scale = Vector2(5.625, 5.625)
 texture = ExtResource("3_x5fvn")
 
 [node name="RightCharacter" type="AnimatedSprite2D" parent="Foreground" unique_id=505021457]
 unique_name_in_owner = true
 position = Vector2(2311.875, 0)
-scale = Vector2(5.625, 5.625)
 script = ExtResource("5_d7q3c")
 container_id = "right"
 
 [node name="RightBench" type="Sprite2D" parent="Foreground/RightCharacter" unique_id=82452965]
 unique_name_in_owner = true
+scale = Vector2(5.625, 5.625)
 texture = ExtResource("3_x5fvn")
 flip_h = true
 
 [node name="CenterCharacter" type="AnimatedSprite2D" parent="Foreground" unique_id=192026712]
 unique_name_in_owner = true
-scale = Vector2(5.625, 5.625)
 script = ExtResource("5_d7q3c")
 container_id = "center"
 
 [node name="WitnessStand" type="Sprite2D" parent="Foreground/CenterCharacter" unique_id=414364330]
 unique_name_in_owner = true
+scale = Vector2(5.625, 5.625)
 texture = ExtResource("6_g0uw8")
