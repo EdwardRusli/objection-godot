@@ -63,7 +63,10 @@ const EMBEDDED_SCRIPT = """<payne>
     </cast>
     <conversation>
         <startmusic res="res://audio/music/pwr/cross-moderato.wav"/>
-        <fade.from_black />
+        <box.set_visible value="false"/>
+        <sprite.set pos="left" res="res://characters/kay/kay.tres" anim="normal-idle"/>
+        <camera.cut to="left"/>
+        <fade.from_black duration="2.0" />
         <dialog id="k" anim="normal">oh actually bringing back ke work force thingy</dialog>
         <dialog id="k" anim="normal">bisa argue ga kalau child nya jadi worker berarti long term family punya source of income?</dialog>
         
@@ -96,7 +99,7 @@ const EMBEDDED_SCRIPT = """<payne>
         <takethat id="e" />
         <dialog id="e" anim="normal">FAKLAH</dialog>
         <sound res="res://audio/sound/sfx-whoops.wav"/>
-        <dialog id="e" anim="crying">EVEN THE NAZI EXAMPLE WAS BETTER DEFENSE THAN THIS 😭</dialog>
+        <dialog id="e" anim="crying">EVEN THE NAZI EXAMPLE WAS A BETTER DEFENSE THAN THIS 😭</dialog>
         
         <holdit id="k" />
         <dialog id="k" anim="normal">STOP</dialog>
@@ -110,10 +113,11 @@ const EMBEDDED_SCRIPT = """<payne>
         <dialog id="k" anim="normal">ok bisa</dialog>
         <dialog id="k" anim="normal">gini logikanya</dialog>
         <dialog id="k" anim="pointing">do you think opa kaya bakal respect istri muda?</dialog>
-        <fade.to_black />
+        <fade.to_black duration="3.0" />
         <stopmusic/>
     </conversation>
-</payne>"""
+</payne>
+"""
 
 func _display_text():
 	var path: String = "res://script.xml"
@@ -178,7 +182,10 @@ func _display_text():
 			else:
 				# This is a command to play at a certain index.
 				command_bits.append(bit)
-	get_tree().quit(0)
+
+	# Execute any remaining commands at the end of the script (e.g. trailing fades or music stop)
+	if not command_bits.is_empty():
+		await _play_textbox(command_bits)
 
 
 func _handle_color(args: Dictionary, is_end: bool):

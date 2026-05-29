@@ -26,6 +26,8 @@
 [ext_resource type="Script" uid="uid://c6ol6ykljlaw0" path="res://ui/next_arrow/arrow.gd" id="26_mjk5q"]
 [ext_resource type="Script" uid="uid://duuvd1vttg3uv" path="res://ui/verdict/verdict.gd" id="28_32ipn"]
 [ext_resource type="PackedScene" uid="uid://dpskq5d2xahc7" path="res://ui/verdict/verdict_single_letter_label.tscn" id="29_xl8j8"]
+[ext_resource type="Script" path="res://effects/fade_overlay.gd" id="30_fade"]
+
 
 [sub_resource type="Animation" id="Animation_j8fsi"]
 length = 0.001
@@ -245,3 +247,13 @@ single_letter_label = ExtResource("29_xl8j8")
 
 [node name="NewEvidence" parent="." unique_id=260725490 instance=ExtResource("25_y6iq0")]
 scale = Vector2(5.625, 5.625)
+
+[node name="FadeOverlay" type="ColorRect" parent="." unique_id=1064962344]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("30_fade")
+

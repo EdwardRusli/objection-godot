@@ -285,6 +285,14 @@ func generate_xml() -> String:
 				output_xml.append("<music.play res=\"%s\" />" % [block["music"]])
 				continue
 
+		elif block["type"] == "raw":
+			var tag_str = "<" + block["tag"]
+			for key in block["attrs"]:
+				tag_str += " " + key + "=\"" + block["attrs"][key] + "\""
+			tag_str += " />"
+			output_xml.append(tag_str)
+			continue
+
 		elif block["type"] == "sound":
 			output_xml.append("<sound.play res=\"%s\" />" % [block["res"]])
 			continue
@@ -295,6 +303,14 @@ func generate_xml() -> String:
 				output_xml.append("<flash duration=\"%s\" />" % [duration])
 			else:
 				output_xml.append("<flash />")
+			continue
+
+		elif block["type"] == "fade":
+			var duration: String = block.get("duration", "")
+			if duration != "":
+				output_xml.append("<fade.%s duration=\"%s\" />" % [block["direction"], duration])
+			else:
+				output_xml.append("<fade.%s />" % [block["direction"]])
 			continue
 
 		elif block["type"] == "bubble":
@@ -550,6 +566,18 @@ func _parse_element(p: XMLParser):
 					"type": "flash",
 					"duration": p.get_named_attribute_value_safe("duration")
 				})
+			elif p.get_node_name() == "fade.to_black":
+				dialog_blocks.append({
+					"type": "fade",
+					"direction": "to_black",
+					"duration": p.get_named_attribute_value_safe("duration")
+				})
+			elif p.get_node_name() == "fade.from_black":
+				dialog_blocks.append({
+					"type": "fade",
+					"direction": "from_black",
+					"duration": p.get_named_attribute_value_safe("duration")
+				})
 			elif p.get_node_name() == "gavel":
 				dialog_blocks.append({
 					"type": "gavel",
@@ -561,6 +589,16 @@ func _parse_element(p: XMLParser):
 					"title": p.get_named_attribute_value("title"),
 					"description": p.get_named_attribute_value_safe("description"),
 					"res": p.get_named_attribute_value_safe("res")
+				})
+			else:
+				# Generic pass-through for any unrecognized XML tags
+				var attr_dict = {}
+				for attr_i in p.get_attribute_count():
+					attr_dict[p.get_attribute_name(attr_i)] = p.get_attribute_value(attr_i)
+				dialog_blocks.append({
+					"type": "raw",
+					"tag": p.get_node_name(),
+					"attrs": attr_dict
 				})
 
 
