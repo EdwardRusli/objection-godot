@@ -1,3 +1,33 @@
-[gd_scene format=3 uid="uid://dfwacdwrkc465"]
+[gd_scene load_steps=3 format=3 uid="uid://bv8eg26t21tgi"]
 
-[node name="Node2D" type="Node2D" unique_id=536523481]
+[ext_resource type="Texture2D" uid="uid://db3yv5gqwcsco" path="res://scenes/title/title.jpg" id="1_4ignj"]
+[ext_resource type="Script" path="res://scenes/title.gd" id="1_title_script"]
+
+[node name="Control" type="Control" unique_id=1621576853]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_title_script")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1325183048]
+layout_mode = 0
+offset_left = -320.0
+offset_right = 960.0
+offset_bottom = 720.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_4ignj")
+
+[node name="FadeOverlay" type="ColorRect" parent="." unique_id=987654322]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=987654323]
