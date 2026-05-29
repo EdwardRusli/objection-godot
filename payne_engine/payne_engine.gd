@@ -330,7 +330,7 @@ func generate_xml() -> String:
 				output_xml.append("<evidence.hide side=\"%s\" />" % [evidence_side])
 
 			# Set text box for character
-			output_xml.append("<nametag.set_text text=\"%s\" />" % [display_name])
+			output_xml.append("<nametag.set_text text=\"%s\" character=\"%s\" />" % [display_name, char_id])
 			# Set character idle animation
 			output_xml.append("<sprite.set pos=\"%s\" res=\"%s\" anim=\"%s-idle\"/>\n" % [char_pos, char_res, char_anim])
 
