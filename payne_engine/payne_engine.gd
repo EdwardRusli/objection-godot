@@ -46,8 +46,14 @@ var character_configs: Dictionary = {
 		"pos": "left",
 		"blip": "female",
 		"anims": ["confident", "defeated", "deskslam", "happy", "normal", "objection", "pumped", "screen", "shaking", "thinking"],
+		"intro_anims": {
+			"deskslam": 0.875
+		},
 		"anim_sounds": {
-			"deskslam": "res://audio/sound/sfx-deskslam.wav"
+			"deskslam": {
+				"res": "res://audio/sound/sfx-deskslam.wav",
+				"delay": 0.375
+			}
 		}
 	},
 	"atmey": {
@@ -137,9 +143,15 @@ var character_configs: Dictionary = {
 		"pos": "left",
 		"blip": "female",
 		"anims": ["annoyed", "deskslam", "normal", "pointing"],
-		"single_pose_anims": ["annoyed", "deskslam"],
+		"single_pose_anims": ["annoyed"],
+		"intro_anims": {
+			"deskslam": 0.875
+		},
 		"anim_sounds": {
-			"deskslam": "res://audio/sound/sfx-deskslam.wav"
+			"deskslam": {
+				"res": "res://audio/sound/sfx-deskslam.wav",
+				"delay": 0.375
+			}
 		}
 	},
 	"killer": {
@@ -358,23 +370,42 @@ func generate_xml() -> String:
 				idle_anim = char_anim
 				talk_anim = char_anim
 
+			var intro_duration: float = char_config.get("intro_anims", {}).get(char_anim, 0.0)
+			var has_intro: bool = intro_duration > 0.0
+
 			# Set text box for character
 			output_xml.append("<nametag.set_text text=\"%s\" character=\"%s\" />" % [display_name, char_id])
 			# Play anim-specific sound (e.g. deskslam sfx) before the sprite is set
-			var anim_sound: String = char_config.get("anim_sounds", {}).get(char_anim, "")
-			if anim_sound != "":
-				output_xml.append("<sound.play res=\"%s\" />" % [anim_sound])
-			# Set character idle animation
-			output_xml.append("<sprite.set pos=\"%s\" res=\"%s\" anim=\"%s\"/>\n" % [char_pos, char_res, idle_anim])
+			var anim_sound_val = char_config.get("anim_sounds", {}).get(char_anim, null)
+			if anim_sound_val != null:
+				if anim_sound_val is Dictionary:
+					var res = anim_sound_val.get("res", "")
+					var delay = anim_sound_val.get("delay", 0.0)
+					if delay > 0.0:
+						output_xml.append("<sound.play res=\"%s\" delay=\"%f\" />" % [res, delay])
+					else:
+						output_xml.append("<sound.play res=\"%s\" />" % [res])
+				elif anim_sound_val is String:
+					output_xml.append("<sound.play res=\"%s\" />" % [anim_sound_val])
+
+			# Set character idle/intro animation
+			if has_intro:
+				output_xml.append("<sprite.set pos=\"%s\" res=\"%s\" anim=\"%s\"/>\n" % [char_pos, char_res, char_anim])
+			else:
+				output_xml.append("<sprite.set pos=\"%s\" res=\"%s\" anim=\"%s\"/>\n" % [char_pos, char_res, idle_anim])
 
 			# Cut camera to this character's position
 			output_xml.append("<camera.cut to=\"%s\" />\n" % [char_pos])
 
-			# Short wait before starting text box
-			output_xml.append("<wait duration=\"0.5\"/>")
+			# Short wait before starting text box / wait for intro animation
+			if has_intro:
+				output_xml.append("<wait duration=\"%f\"/>" % [intro_duration])
+			else:
+				output_xml.append("<wait duration=\"0.5\"/>")
 
 			# Start character talking animation
-			output_xml.append("<sprite.set pos=\"%s\" anim=\"%s\" />\n" % [char_pos, talk_anim])
+			if talk_anim != idle_anim:
+				output_xml.append("<sprite.set pos=\"%s\" anim=\"%s\" />\n" % [char_pos, talk_anim])
 
 			# If this box has evidence, then display it.
 			if evidence != "" and evidence != prev_evidence:
@@ -388,7 +419,8 @@ func generate_xml() -> String:
 			output_xml.append("")
 
 			# End character talking animation once text is done
-			output_xml.append("<sprite.set pos=\"%s\" anim=\"%s\" />\n" % [char_pos, idle_anim])
+			if talk_anim != idle_anim:
+				output_xml.append("<sprite.set pos=\"%s\" anim=\"%s\" />\n" % [char_pos, idle_anim])
 			output_xml.append("<blip.set type=\"none\" />\n")
 
 			if dialog_blocks.size() == block_i + 1 or dialog_blocks[block_i + 1]["type"] != "newevidence":

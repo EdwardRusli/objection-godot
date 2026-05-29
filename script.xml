@@ -7,7 +7,7 @@
     <conversation>
         <startmusic res="res://audio/music/pwr/cross-moderato.wav"/>
         <dialog id="k" anim="normal">oh actually bringing back ke work force thingy</dialog>
-        <dialog id="k" anim="pointing">bisa argue ga kalau child nya jadi worker berarti long term family punya source of income?</dialog>
+        <dialog id="k" anim="deskslam">bisa argue ga kalau child nya jadi worker berarti long term family punya source of income?</dialog>
         
         <objection id="e" />
         <dialog id="e" anim="normal">tp klo dinikahin sm opa kaya this is invalid no?</dialog>
@@ -19,7 +19,7 @@
         <dialog id="e" anim="normal">...</dialog>
         
         <objection id="p" />
-        <startmusic />
+        <startmusic res="res://audio/music/pwr/press.wav"/>
         <dialog id="p" anim="crying">anjing 😭</dialog>
         
         <dialog id="k" anim="normal">LMAO</dialog>
@@ -46,6 +46,7 @@
         <dialog id="p" anim="crying">PERUT GUE</dialog>
         <dialog id="e" anim="normal">ini rado looking at me like a clinically insane man for laughing silently</dialog>
         <sound res="res://audio/sound/sfx-supershock.wav"/>
+        <flash />
         <dialog id="p" anim="crying">RADO WOULD THINK YOU <color value="aa-text-red">ARE</color> A CLINICALLY INSANE MAN IF HE READ THIS BULLSHIT</dialog>
         
         <dialog id="k" anim="normal">ok bisa</dialog>

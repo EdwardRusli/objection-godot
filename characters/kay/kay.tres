@@ -1,11 +1,17 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://xiixpehxie51"]
 
 [ext_resource type="Texture2D" uid="uid://k2cni0784o5h" path="res://characters/kay/normal-idle/annoyed.PNG" id="1_axtri"]
-[ext_resource type="Texture2D" uid="uid://bvfb0lk6dhaxy" path="res://characters/kay/normal-idle/deskslam.PNG" id="2_5r8dp"]
+[ext_resource type="Texture2D" uid="uid://cirmk8n268c1o" path="res://characters/kay/normal-idle/deskslam1.PNG" id="2_ej6kx"]
 [ext_resource type="Texture2D" uid="uid://ckgkkmk025n5l" path="res://characters/kay/normal-idle/normal-idle.PNG" id="3_3hvyc"]
+[ext_resource type="Texture2D" uid="uid://d1dkjwodwmixc" path="res://characters/kay/normal-idle/deskslam2.PNG" id="3_lquyt"]
+[ext_resource type="Texture2D" uid="uid://cvtjkqwifcgu8" path="res://characters/kay/normal-idle/deskslam3.PNG" id="4_uwjti"]
 [ext_resource type="Texture2D" uid="uid://vuboyms6ogxr" path="res://characters/kay/normal-idle/normal-talking.PNG" id="4_yk0pk"]
 [ext_resource type="Texture2D" uid="uid://byx1p6khnctkh" path="res://characters/kay/normal-idle/pointing-idle.png" id="5_5r8dp"]
+[ext_resource type="Texture2D" uid="uid://b4ougfok3pjur" path="res://characters/kay/normal-idle/deskslam4.PNG" id="5_dogud"]
 [ext_resource type="Texture2D" uid="uid://cs3jw0cj0dkai" path="res://characters/kay/normal-idle/pointing-talk.PNG" id="6_3hvyc"]
+[ext_resource type="Texture2D" uid="uid://fjonho6on70p" path="res://characters/kay/normal-idle/deskslam5.PNG" id="6_6cm1y"]
+[ext_resource type="Texture2D" uid="uid://cvj2k25g8xusq" path="res://characters/kay/normal-idle/deskslam-idle.png" id="7_uwjti"]
+[ext_resource type="Texture2D" uid="uid://ct5dnnswvgm0t" path="res://characters/kay/normal-idle/deskslam-talk.png" id="8_dogud"]
 
 [resource]
 animations = [{
@@ -19,11 +25,48 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_5r8dp")
+"texture": ExtResource("2_ej6kx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_lquyt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_uwjti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dogud")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dogud")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dogud")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6cm1y")
+}],
+"loop": false,
+"name": &"deskslam",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_uwjti")
 }],
 "loop": true,
-"name": &"deskslam",
+"name": &"deskslam-idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_uwjti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_dogud")
+}],
+"loop": true,
+"name": &"deskslam-talk",
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
