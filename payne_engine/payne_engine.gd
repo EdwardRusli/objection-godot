@@ -303,7 +303,13 @@ func generate_xml() -> String:
 			var char_config: Dictionary = character_configs[char_id]
 
 			var bubble_type = block["bubble_type"]
-			var sound_path = char_config.get("sounds", {}).get(bubble_type, "res://audio/sound/objection-generic.wav")
+			var default_sound = "res://audio/sound/phoenix-objection.mp3"
+			if bubble_type == "holdit":
+				default_sound = "res://audio/sound/ace-attorney-phoenix-wright-hold-it.mp3"
+			elif bubble_type == "takethat":
+				default_sound = "res://audio/sound/take-that-ace-attorney.mp3"
+
+			var sound_path = char_config.get("sounds", {}).get(bubble_type, default_sound)
 
 			output_xml.append("<evidence.hide_immediate side=\"%s\" />" % [evidence_side])
 			output_xml.append("<box.set_visible value=\"false\"/>")
